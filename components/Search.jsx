@@ -9,9 +9,9 @@ class Search extends React.Component {
             </div>
         )
     }
-    shouldItemRender(item, value) {
-        return !value || item.title.toLowerCase().indexOf(value.toLowerCase()) !== -1
-    }
+    // shouldItemRender(item, value) {
+    //     return !value || item.title.toLowerCase().indexOf(value.toLowerCase()) !== -1
+    // }
     render() {
         return (
             <div className="search">
@@ -20,7 +20,6 @@ class Search extends React.Component {
                     wrapperStyle={{display: 'block'}}
                     ref="autocomplete"
                     inputProps={{title: 'Title'}}
-                    shouldItemRender={this.shouldItemRender.bind(this)}
                     value={this.props.autoCompleteValue}
                     items={this.props.tracks}
                     getItemValue={(item) => item.title}
