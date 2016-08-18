@@ -1,5 +1,5 @@
 const webpack = require('webpack')
-const webpackDevServer = require('webpack-dev-server')
+const WebpackDevServer = require('webpack-dev-server')
 const config = require('./webpack.config')
 
 const port = 8080
@@ -14,11 +14,13 @@ if (config.plugins)
 else
     config.plugins = [new webpack.HotModuleReplacementPlugin()]
 
-let compiler = webpack(config)
-new webpackDevServer(compiler, {
+var compiler = webpack(config)
+new WebpackDevServer(compiler, {
     hot: true,
-    publicPath: config.output.publicPath // webpackDevServer 无法读取到publicPath，需要手动加
-}).listen(port)
+    publicPath: config.output.publicPath // WebpackDevServer 无法读取到publicPath，需要手动加
+}).listen(port, () => {
+    console.log('webpack dev server run on port ' + port)
+})
 
 // [1]
 // Inline mode with node.js API

@@ -1,0 +1,108 @@
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+body {
+    
+}
+#container {
+    height: 100%;
+    background: #ddd;
+}
+.search {
+    
+}
+.search-autocomplete {
+    
+}
+.search-autocomplete input {
+    width: 100%;
+    line-height: 20px;
+}
+.details {
+    position: relative;
+    height: 120px;
+}
+.details-title {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    margin-top: -15px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+}
+.player {
+    text-align: center;
+}
+.player-center {
+    display: inline-block;
+    border: 1px solid #cc6166;
+}
+.player button {
+    width: 60px;
+    height: 60px;
+    font-size: 30px;
+    border: none;
+    color: #cc6166;
+    background: transparent;
+}
+.player > button {
+    margin: 15px;
+    border: 1px solid #cc6166;
+    border-radius: 50%;
+}
+.progress {
+    padding: 30px 0;
+    text-align: center;
+}
+.progress progress {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 75%;
+    margin: 0 5px;
+}
+.progress progress[value]::-webkit-progress-value {
+    background-image:
+        -webkit-linear-gradient(-45deg, 
+	                            transparent 33%, rgba(0, 0, 0, .1) 33%, 
+	                            rgba(0,0, 0, .1) 66%, transparent 66%),
+	    -webkit-linear-gradient(top, 
+	                            rgba(255, 255, 255, .25), 
+	                            rgba(0, 0, 0, .25)),
+	    -webkit-linear-gradient(left, #09c, #f44);
+
+    border-radius: 2px; 
+    background-size: 35px 20px, 100% 100%, 100% 100%;
+    -webkit-animation: animate-stripes 5s linear infinite;
+            animation: animate-stripes 5s linear infinite;
+}
+.progress progress::-webkit-progress-bar {
+    background-color: #eee;
+    border-radius: 2px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+}
+@-webkit-keyframes animate-stripes {
+   100% { background-position: -100px 0px; }
+}
+@keyframes animate-stripes {
+   100% { background-position: -100px 0px; }
+}
+.footer {
+    -webkit-app-region: drag;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 15px;
+    color: #eee;
+    background: #428caa;
+    text-align: center;
+}

@@ -1,8 +1,12 @@
-/* global process, __dirname */
+/* global process, __dirname, __filename */
 const { app, BrowserWindow } = require('electron')
 
-let win
+require('electron-reload')(__filename, {
+    electron: require('electron-prebuilt')
+})
 
+
+let win
 app.on('ready', createWindow)
 
 // Quit when all windows are closed.
@@ -23,8 +27,23 @@ app.on('activate', () => {
 })
 
 function createWindow() {
-    win = new BrowserWindow({ width: 800, height: 600 })
+    win = new BrowserWindow({
+        width: 400,
+        height: 400,
+        x: 1200,
+        y: 50,
+        frame: false
+    })
 
     win.loadURL(`file://${__dirname}/index.html`)
 
+    win.webContents.openDevTools()
+
+    // Emitted when the window is closed.
+    win.on('close', () => {
+        // Dereference the window object, usually you would store windows
+        // in an array if your app supports multi windows, this is the time
+        // when you should delete the corresponding element.
+        win = null
+    })
 }
